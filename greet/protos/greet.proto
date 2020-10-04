@@ -1,0 +1,21 @@
+syntax = "proto3";
+option go_package = "./greet";
+service Greet {
+    // GetPhrase returns the exchange rate for the two provided Greet codes 
+    rpc GetPhrase(PhraseRequest) returns (PhraseResponse);
+}
+
+// PhraseRequest defines the request for a GetPhrase call
+message PhraseRequest {
+    // Base is the base Greet code for the rate
+    string Base = 1;
+    // Destination is the destination Greet code for the rate
+    string Name = 2;
+}
+
+// PhraseResponse is the response from a GetPhrase call, it contains
+// greeting phrase of type string and can be used to interchange between the 
+// two Greeting specified in the request.
+message PhraseResponse {
+    string greet = 1;
+}
