@@ -5,7 +5,7 @@ import (
 	"net"
 	"os"
 
-	protos "./protos/greet"
+	protos "./protos/currency"
 
 	server "./server"
 	"github.com/hashicorp/go-hclog"
@@ -16,9 +16,9 @@ import (
 func main() {
 	log := hclog.Default()
 	gs := grpc.NewServer()
-	c := server.NewGreeting(log)
+	c := server.NewCurrency(log)
 
-	protos.RegisterGreetServer(gs, c)
+	protos.RegisterCurrencyServer(gs, c)
 
 	reflection.Register(gs)
 
